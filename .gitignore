@@ -137,3 +137,6 @@ dist
 
 # macOS
 .DS_Store
+
+# Firebase
+functions/venv/
