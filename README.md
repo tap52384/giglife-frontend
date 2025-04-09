@@ -13,7 +13,7 @@ your web site by:
 
 **App Check** seems to be a feature designed to prevent users from sending too much traffic to
 your site, driving up costs. Make sure this is done prior to going to production to prevent any
-surprises.
+surprises. Automatic builds and deployments are also disabled to prevent surprise costs.
 
 ### Hosting
 
@@ -47,7 +47,24 @@ firebase login
 # somehow, so say no (the default)
 firebase init
 
+# Initialize Firebase Firestore, which is the cloud database for your app; this
+# seems to work better than using "firebase init" and selecting firestore as some files
+# were added to the code base
+firebase init firestore
+
+# According to this page, it is possible to emulate the "Hosting" capabilities of Firebase locally
+# for better testing before deployment
+# https://firebase.google.com/docs/hosting/#implementation_path
+firebase emulators:start
+
 # To deploy your app, use the following command:
+# This command seems to look at firebase.json to determine what to deploy.
+# I had enabled functions (which may be Cloud Functions like in Google Cloud Platform), but the
+# error message I received indicated that I could not deploy those in the Spark billing plan,
+# so I created a copy of firebase.json, firebase.json.original, so I could remove the "functions"
+# array from firebase.json. After doing so, "firebase deploy" worked.
+# Upon successful deployment, the command provides 2 URLs, one for the Firebase console and the
+# other to view the app as it is hosted.
 firebase deploy
 ```
 
