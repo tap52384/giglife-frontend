@@ -53,8 +53,11 @@ firebase init
 firebase init firestore
 
 # According to this page, it is possible to emulate the "Hosting" capabilities of Firebase locally
-# for better testing before deployment
+# for better testing before deployment. To "deploy" means to send your code to the remote Firebase
+# servers so that your web page can be accessed via the web from a provided URL.
 # https://firebase.google.com/docs/hosting/#implementation_path
+# This command can start emulators for the different services (Firestore, Hosting, Auth, etc.)
+# which can be accessed from localhost and a specific port.
 firebase emulators:start
 
 # To deploy your app, use the following command:
