@@ -77,6 +77,28 @@ custom domain (which is the goal if Firebase works the way we need).
 In the Hosting page, it is possible to enable Cloud Logging. Do so as it will help make debugging
 the application easier.
 
+## Vite
+
+I'm using Vite to create a React app since I've heard much about it. I'm new to Firebase, React,
+Vite, and more, so I will document all that I learn here so that I can understand how it all works.
+
+```bash
+cd ~/code/giglife-frontend/public
+
+# Create your first Vite project using a built-in "react-ts" template, which adds support for
+# TypeScript
+npm create vite@latest . -- --template react-ts
+npm install
+
+# Heard a lot about TailwindCSS (tailwindcss.com)
+# https://tailwindcss.com/docs/installation/using-vite
+npm install tailwindcss @tailwindcss/vite
+
+# To start the local server for testing your changes live
+cd ~/code/giglife-frontend/public
+npm run dev
+```
+
 ## Development Notes
 
 ### .gitignore
