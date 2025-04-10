@@ -58,6 +58,8 @@ firebase init firestore
 # https://firebase.google.com/docs/hosting/#implementation_path
 # This command can start emulators for the different services (Firestore, Hosting, Auth, etc.)
 # which can be accessed from localhost and a specific port.
+
+# To start all emulators:
 firebase emulators:start
 
 # To deploy your app, use the following command:
@@ -94,9 +96,13 @@ npm install
 # https://tailwindcss.com/docs/installation/using-vite
 npm install tailwindcss @tailwindcss/vite
 
-# To start the local server for testing your changes live
+# To start the local server for testing your changes live in the Vite app
 cd ~/code/giglife-frontend/public
 npm run dev
+
+# However, just because npm run dev works doesn't mean it works by default with Firebase
+# you can start just the Hosting emulator for Firebase:
+firebase emulators:start --only hosting
 ```
 
 ## Development Notes
