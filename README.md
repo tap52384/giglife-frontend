@@ -105,6 +105,15 @@ npm run dev
 firebase emulators:start --only hosting
 ```
 
+By using the emulators locally, you can test how the website will behave without running
+`firebase deploy`.
+
+Based on how I created the React app within the `/public` folder, I had to edit the
+`public` key within the `hosting` object (which represents how the hosting feature in Firebase is
+used) within `firebase.json` from `public` to `public/dist`. Additionally, you have to run
+`npm run build` within the `/public` folder to build the React assets for production for this to
+work.
+
 ## Development Notes
 
 ### .gitignore
