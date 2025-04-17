@@ -96,6 +96,7 @@ npm create vite@latest . -- --template react-ts
 # shadcn was recommended by ChatGPT, so we will use that for components
 # https://ui.shadcn.com
 npm install tailwindcss @tailwindcss/vite
+npm install -D @types/node
 
 # To start the local server for testing your changes live in the Vite app
 npm run dev
@@ -126,6 +127,15 @@ The file `index.html` launches the main module from `src/main.tsx`.
 
 Based on the original `index.html` created by Vite, I would edit `src/App.tsx`. I saved the original
 `index.html` as `index.html.original` just in case.
+
+### Configuring app for TailwindCSS and ShadCN/UI
+
+These steps assume that you created the Vite app, installed TailwindCSS and run `npm run dev`
+to make sure it all works before moving forward, which is outlined above in the **Vite** section.
+
+To add ShadCN/UI, follow [the instructions here](https://ui.shadcn.com/docs/installation/vite).
+
+
 
 ### Multiple pages with Vite + React
 

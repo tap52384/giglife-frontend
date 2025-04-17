@@ -20,7 +20,21 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* ShadCN/UI */
+    "baseUrl": ".",
+    "paths": {
+        "@/*": [
+            "./src/*"
+        ],
+        // "@components/*": ["./src/components/*"],
+        // "@hooks/*": ["./src/hooks/*"],
+        // "@lib/*": ["./src/lib/*"],
+        // "@styles/*": ["./src/styles/*"],
+        // "@types/*": ["./src/types/*"],
+        // "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src"]
 }
