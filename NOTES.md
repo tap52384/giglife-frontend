@@ -121,7 +121,7 @@ work.
 ### Editing Code
 
 By default, it looks like Vite is a single-page client-side application where all React code is
-run from `public/index.html`. The React JavaScript/TypeScript code is in the `public/src` folder.
+run from `index.html`. The React JavaScript/TypeScript code is in the `src` folder.
 The file `index.html` launches the main module from `src/main.tsx`.
 
 Based on the original `index.html` created by Vite, I would edit `src/App.tsx`. I saved the original
