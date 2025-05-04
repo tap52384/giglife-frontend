@@ -15,6 +15,35 @@ your web site by:
 your site, driving up costs. Make sure this is done prior to going to production to prevent any
 surprises. Automatic builds and deployments are also disabled to prevent surprise costs.
 
+### Firestore + Security Rules
+
+What is Firestore? It's what they call their database, which is a "flexible, scalable NoSQL cloud
+database." I got a warning because by default, since I have the database in "Test Mode," anyone
+with the FIrestore database reference to the site can view, edit, and delete all data in the
+database. This is what the default rules look like:
+
+```json
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // This rule allows anyone with your Firestore database reference to view, edit,
+    // and delete all data in your Firestore database. It is useful for getting
+    // started, but it is configured to expire after 30 days because it
+    // leaves your app open to attackers. At that time, all client
+    // requests to your Firestore database will be denied.
+    //
+    // Make sure to write security rules for your app before that time, or else
+    // all client requests to your Firestore database will be denied until you Update
+    // your rules
+    match /{document=**} {
+      allow read, write: if request.time < timestamp.date(2025, 5, 1);
+    }
+  }
+}
+```
+
 ### Hosting
 
 There are *Product Categories* on the dashboard for your project in Firebase. Under *Build*, there
