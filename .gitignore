@@ -149,6 +149,7 @@ functions/venv/
 /firebase-debug.log
 /firebase-debug.*.log
 .firebaserc
+firebase-config.js
 
 # Firebase Hosting
 /firebase.json

@@ -89,7 +89,7 @@ firebase init firestore
 # which can be accessed from localhost and a specific port.
 
 # To start all emulators:
-firebase emulators:start
+firebase emulators:start --only hosting,functions
 
 # To deploy your app, use the following command:
 # This command seems to look at firebase.json to determine what to deploy.
@@ -99,6 +99,10 @@ firebase emulators:start
 # array from firebase.json. After doing so, "firebase deploy" worked.
 # Upon successful deployment, the command provides 2 URLs, one for the Firebase console and the
 # other to view the app as it is hosted.
+
+# 2025/05/04 - I have configured the firebase.json in the frontend repo to reference the "functions"
+# folder of the backend repo. Now I can deploy from here just like I can test from here and it
+# work just fine.
 firebase deploy
 ```
 
@@ -153,8 +157,8 @@ npm create vite@latest . -- --template react-ts
 # https://tailwindcss.com/docs/installation/using-vite
 # shadcn was recommended by ChatGPT, so we will use that for components
 # https://ui.shadcn.com
-npm install tailwindcss @tailwindcss/vite react-router-dom
-npm install -D @types/node
+npm install -D @types/node @tailwindcss/postcss autoprefixer postcss tailwindcss @tailwindcss/vite
+npm install react-router-dom
 
 # To start the local server for testing your changes live in the Vite app
 npm run dev
@@ -218,6 +222,24 @@ Modern pages do **client-side routing**, which means that they have a single `in
 as an entry point where going to a new "page" is really swapping out components, which is faster
 than making a request to the server (multiple entry points).
 
+## TailwindCSS
+
+### tailwind.config.js
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+};
+```
+
 ## Development Notes
 
 ### .gitignore
@@ -226,3 +248,16 @@ Used the following .gitignore files for ignoring unnecessary files in this repos
 
 - [Firebase](https://github.com/github/gitignore/blob/main/Firebase.gitignore)
 - [Node (for React/JavaScript)](https://github.com/github/gitignore/blob/main/Node.gitignore)
+
+### Features to add
+
+- Expiration / Taken - make note whether a gig has already been taken or if it has expired to help
+keep the list fresh. Perhaps consider a gig expired if it has not been claimed by 12 PM on the day
+the help is needed. Have the expiration time to be configurable somehow in the application to
+prevent needing to make code changes.
+- "Movie timer for claiming gigs" - have some sort of system like when you reserve a ticket for a
+movie where users temporarily have a claim on a gig for a certain period of time (like 5 minutes)
+with a visible timer on the page; have this timer be configurable
+- @gmail.com addresses - have a "display email" that respects how users enter their email address
+but also be smart enough to ignore all plus signs and periods and anything after a plus sign to
+avoid multiple signups for the same exact email address

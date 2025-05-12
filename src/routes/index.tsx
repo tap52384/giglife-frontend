@@ -3,7 +3,7 @@ import {
     Routes,
     Route,
   } from "react-router-dom";
-  import HomePage from "../pages/HomePage";
+  import Home from "../pages/Home";
   import PricingPage from "../pages/PricingPage";
   import NotFoundPage from "../pages/NotFoundPage";
 
@@ -11,7 +11,7 @@ import {
     return (
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
